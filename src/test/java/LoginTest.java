@@ -27,11 +27,9 @@ public class LoginTest {
 
             WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
 
-            // 1. Verify new page URL contains practicetestautomation.com/logged-in-successfully/
             wait.until(ExpectedConditions.urlContains("practicetestautomation.com/logged-in-successfully/"));
             System.out.println("URL verification passed");
 
-            // 2. Verify new page contains expected text ('Congratulations')
             WebElement congratsMessage = wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//*[contains(text(),'Congratulations')]")));
             if (congratsMessage != null) {
                 System.out.println("Congratulations message verification passed");
@@ -39,7 +37,6 @@ public class LoginTest {
                 System.out.println("Congratulations message verification failed");
             }
 
-            // 3. Verify button Log out is displayed on the new page
             WebElement logoutButton = wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//*[contains(text(),'Log out')]")));
             if (logoutButton != null) {
                 System.out.println("Logout button verification passed");
